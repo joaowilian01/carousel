@@ -5,23 +5,21 @@ const images = document.querySelectorAll('[data-js="carousel-image"]')
 let actualIndex = 0
 const lastIndex = images.length - 1
 
+const incrementIndex = () =>
+  actualIndex = actualIndex < lastIndex ? ++actualIndex : 0
+
+const decrementIndex = () =>
+  actualIndex = actualIndex > 0 ? --actualIndex : lastIndex
+
 nextButton.addEventListener('click', () => {
-  if (actualIndex < lastIndex) {
-    actualIndex++
-  } else {
-    actualIndex = 0
-  }
+  incrementIndex()
 
   images.forEach(image => image.classList.remove('carousel-image-visible'))
   images[actualIndex].classList.add('carousel-image-visible')
 })
 
 prevButton.addEventListener('click', () => {
-  if (actualIndex > 0) {
-    actualIndex--
-  } else {
-    actualIndex = lastIndex
-  }
+  decrementIndex()
 
   images.forEach(image => image.classList.remove('carousel-image-visible'))
   images[actualIndex].classList.add('carousel-image-visible')
