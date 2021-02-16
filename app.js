@@ -11,16 +11,17 @@ const incrementIndex = () =>
 const decrementIndex = () =>
   actualIndex = actualIndex > 0 ? --actualIndex : lastIndex
 
+const manipulateImageClasses = index => {
+  images.forEach(image => image.classList.remove('carousel-image-visible'))
+  images[index].classList.add('carousel-image-visible')
+}
+
 nextButton.addEventListener('click', () => {
   incrementIndex()
-
-  images.forEach(image => image.classList.remove('carousel-image-visible'))
-  images[actualIndex].classList.add('carousel-image-visible')
+  manipulateImageClasses(actualIndex)
 })
 
 prevButton.addEventListener('click', () => {
   decrementIndex()
-
-  images.forEach(image => image.classList.remove('carousel-image-visible'))
-  images[actualIndex].classList.add('carousel-image-visible')
+  manipulateImageClasses(actualIndex)
 })
