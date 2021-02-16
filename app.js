@@ -15,3 +15,14 @@ nextButton.addEventListener('click', () => {
   images.forEach(image => image.classList.remove('carousel-image-visible'))
   images[actualIndex].classList.add('carousel-image-visible')
 })
+
+prevButton.addEventListener('click', () => {
+  if (actualIndex > 0) {
+    actualIndex--
+  } else {
+    actualIndex = lastIndex
+  }
+
+  images.forEach(image => image.classList.remove('carousel-image-visible'))
+  images[actualIndex].classList.add('carousel-image-visible')
+})
